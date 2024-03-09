@@ -9,7 +9,7 @@
     </style>
 </head>
 <body>
-    <div class="login-container" id="loginContainer">
+    <div class="login-container">
         <h2>Login</h2>
         <form id="loginForm" onsubmit="return validateForm()">
             <div class="input-group">
@@ -28,34 +28,6 @@
         </div>
     </div>
 
-    <div class="sessao" id="sessaoPrincipal" style="display: none;">
-        <div class="sidebar">
-            <h2>Menu</h2>
-            <ul>
-                <li><a href="#">Opção 1</a></li>
-                <li><a href="#">Opção 2</a></li>
-                <li><a href="#">Opção 3</a></li>
-            </ul>
-        </div>
-        <div class="main-content">
-            <!-- Conteúdo da sessão principal -->
-        </div>
-    </div>
-
-    <div class="sessao" id="outraSessao" style="display: none;">
-        <div class="sidebar">
-            <h2>Menu</h2>
-            <ul>
-                <li><a href="#">Opção A</a></li>
-                <li><a href="#">Opção B</a></li>
-                <li><a href="#">Opção C</a></li>
-            </ul>
-        </div>
-        <div class="main-content">
-            <!-- Conteúdo da outra sessão -->
-        </div>
-    </div>
-
     <script>
         function validateForm() {
             var email = document.getElementById("email").value;
@@ -70,12 +42,7 @@
 
             // Simulação de login bem-sucedido
             if (email === "leandrosouzasilva814@gmail.com" && senha === "5027") {
-                // Ocultar container de login
-                document.getElementById("loginContainer").style.display = "none";
-                // Exibir sessão principal ou outra sessão (dependendo da lógica do seu aplicativo)
-                document.getElementById("sessaoPrincipal").style.display = "block";
-                // Ou
-                // document.getElementById("outraSessao").style.display = "block";
+                window.location.href = "pagina_principal.html"; // Redireciona para a página principal
                 return false; // Impede o envio do formulário
             } else {
                 errorMessage.textContent = "Credenciais inválidas. Por favor, tente novamente.";
