@@ -1,85 +1,51 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Título da Página</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: linear-gradient(45deg, black, cyan);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        /* Seus estilos CSS aqui */
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#" onclick="abrirSessao('sessao1')">Sessão 1</a></li>
+            <li><a href="#" onclick="abrirSessao('sessao2')">Sessão 2</a></li>
+            <li><a href="#" onclick="abrirSessao('sessao3')">Sessão 3</a></li>
+        </ul>
+    </div>
+    <div id="sessao1" class="sessao" style="display: none;">
+        <!-- Conteúdo da Sessão 1 -->
+    </div>
+    <div id="sessao2" class="sessao" style="display: none;">
+        <!-- Conteúdo da Sessão 2 -->
+    </div>
+    <div id="sessao3" class="sessao" style="display: none;">
+        <!-- Conteúdo da Sessão 3 -->
+    </div>
+
+    <script>
+        function abrirSessao(id) {
+            var sessoes = document.getElementsByClassName("sessao");
+            for (var i = 0; i < sessoes.length; i++) {
+                sessoes[i].style.display = "none";
+            }
+            document.getElementById(id).style.display = "block";
         }
-        
-        .login-container {
-            width: 300px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            position: absolute;
-            border-radius: 15px;
-            padding: 100px;
-        }
-        input{
-            padding: 15px
-            boarder: none;
-            outline: none;
-        }
-        .login-container h2 {
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .login-container form {
-            display: flex;
-            flex-direction: column;
-        }
-        .login-container .input-group {
-            margin-bottom: 15px;
-        }
-        .login-container label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .login-container input[type="email"],
-        .login-container input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            font-size: 16px;
-        }
-        .login-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .login-container button:hover {
-            background-color: #555;
-        }
-        .error-message {
-            color: red;
-            margin-top: 10px;
-            text-align: center;
-        }
-        .register-link {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .register-link a {
-            color: #333;
-            text-decoration: none;
-        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título da Página</title>
+    <style>
+        /* Seus estilos CSS aqui */
     </style>
 </head>
 <body>
@@ -116,8 +82,8 @@
 
             // Simulação de login bem-sucedido
             if (email === "leandrosouzasilva814@gmail.com" && senha === "5027") {
-                alert("Login bem-sucedido!");
-                return true;
+                window.location.href = "pagina_principal.html";
+                return false; // Impede o envio do formulário
             } else {
                 errorMessage.textContent = "Credenciais inválidas. Por favor, tente novamente.";
                 return false;
