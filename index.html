@@ -8,12 +8,12 @@
         /* Estilos CSS existentes */
         body {
             font-family: Arial, sans-serif;
-            background-image:linear-gradient(45deg, cyan,yellow);
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: rgba(0,0,0, 0.8);
+            background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -101,7 +101,7 @@
     <div class="login-container">
         <!-- Tela de login -->
         <h2>Login</h2>
-        <form action="#" method="post">
+        <form id="loginForm" action="#" method="post" onsubmit="return validateForm()">
             <div class="input-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
@@ -116,5 +116,27 @@
     <footer>
         <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+            
+            // Validar se email e senha foram preenchidos
+            if (email == "" || senha == "") {
+                alert("Por favor, preencha todos os campos.");
+                return false;
+            }
+
+            // Simulação de login bem-sucedido
+            if (email === "exemplo@email.com" && senha === "senha123") {
+                alert("Login bem-sucedido!");
+                return true;
+            } else {
+                alert("Credenciais inválidas. Por favor, tente novamente.");
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
