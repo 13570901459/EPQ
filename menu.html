@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Menu Lateral</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 100px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+        }
+
+        .content {
+            margin-left: 300px; /* Largura da barra lateral */
+            padding: 20px;
+            flex: 1;
+        }
+
+        .header {
+            background-color: dodgerblue;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+        }
+
+        .menu-item a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <h2>Menu</h2>
+            </div>
+            <div class="menu-item"><a href="#">Item 1</a></div>
+            <div class="menu-item"><a href="#">Item 2</a></div>
+            <div class="menu-item"><a href="#">Item 3</a></div>
+            <div class="menu-item"><a href="#">Item 4</a></div>
+            <div class="menu-item"><a href="#">Item 5</a></div>
+        </div>
+        <div class="content">
+            <div class="header">
+                <h1>Cabeçalho</h1>
+            </div>
+            <p>Conteúdo da página aqui...</p>
+        </div>
+    </div>
+</body>
+</html>
+
