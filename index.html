@@ -3,48 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sincronização com Google Sheets</title>
+    <title>Planilha Google Sheets</title>
 </head>
 <body>
-    <h1>Dados da Planilha</h1>
-    <div id="sheetData"></div>
-
-    <script>
-        // ID da planilha e o nome da folha que você deseja acessar
-        const spreadsheetId = '1Ga-6Opiv17YPGvzbZ-FRFAfwkumdMDyXgEVBGIFHMIU';
-        const sheetName = 'Planilha1'; // Pode ser alterado para o nome da sua folha
-
-        // URL para acessar os dados da planilha
-        const url = `https://spreadsheets.google.com/feeds/list/${spreadsheetId}/${sheetName}/public/values?alt=json`;
-
-        // Função para buscar e exibir os dados da planilha
-        function fetchSheetData() {
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const entries = data.feed.entry;
-                    const sheetData = document.getElementById('sheetData');
-                    sheetData.innerHTML = '';
-
-                    if (entries && entries.length > 0) {
-                        sheetData.innerHTML += '<ul>';
-                        entries.forEach(entry => {
-                            const values = Object.values(entry);
-                            values.splice(0, 2); // Remove propriedades indesejadas
-                            sheetData.innerHTML += `<li>${values.join(' | ')}</li>`;
-                        });
-                        sheetData.innerHTML += '</ul>';
-                    } else {
-                        sheetData.textContent = 'Nenhum dado encontrado na planilha.';
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao buscar dados da planilha:', error);
-                });
-        }
-
-        // Chama a função para buscar os dados da planilha quando a página carrega
-        window.onload = fetchSheetData;
-    </script>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRVW5nhaHkuDRUMh9r-rkT_EYe76K6ijuKgWOHVMI-CFVW-czwHOTWsZ6EiGkJW0qV_Zm7kJeVqQueW/pubhtml?gid=1153356739&single=true" width="100%" height="500" frameborder="0" scrolling="no"></iframe>
 </body>
 </html>
