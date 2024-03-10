@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronômetro com Alarme e Som</title>
     <style>
-        body {
+        body {        
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #000; /* Cor de fundo preto */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: cyan; /* Cor do número ciano */
         }
 
         #clock {
-            font-size: 3em;
+            font-size: 6em;
             margin-bottom: 20px;
         }
 
         button {
             padding: 10px 20px;
             font-size: 1em;
-            background-color: dodgerblue;
+            background-color: cyan; /* Alterado para ciano */
             color: white;
             border: none;
             border-radius: 5px;
@@ -39,15 +40,16 @@
             padding: 8px;
             border-radius: 5px;
             border: 1px solid #ccc;
-        }
+        }       }
     </style>
 </head>
 <body>
     <div id="clock">00:00:00</div>
     <input type="time" id="alarmTime">
     <button onclick="toggleTimer()">Iniciar/Pausar</button>
+    <button onclick="resetTimer()">Zerar</button>
 
-    <audio id="alarmSound" src="alarme.mp3"></audio>
+    <audio id="alarme.mp3" src="alarme.mp3"></audio>
 
     <script>
         var timerInterval;
@@ -108,6 +110,16 @@
                 document.querySelector('button').textContent = 'Iniciar';
                 running = false;
             }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            document.getElementById('clock').textContent = '00:00:00';
+            seconds = 0;
+            minutes = 0;
+            hours = 0;
+            running = false;
+            document.querySelector('button').textContent = 'Iniciar';
         }
     </script>
 </body>
